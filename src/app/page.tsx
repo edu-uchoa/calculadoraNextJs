@@ -11,15 +11,13 @@ type CalculatorState = {
   overwrite: boolean;
 };
 
-// Define action types
 type CalculatorAction =
   | { type: 'ADD_DIGIT'; payload: string }
   | { type: 'CHOOSE_OPERATION'; payload: string }
   | { type: 'CLEAR' }
   | { type: 'DELETE_DIGIT' }
   | { type: 'EVALUATE' };
-
-// Initial state
+e
 const initialState: CalculatorState = {
   currentValue: '0',
   previousValue: null,
@@ -27,7 +25,6 @@ const initialState: CalculatorState = {
   overwrite: false,
 };
 
-// Reducer function
 function calculatorReducer(state: CalculatorState, action: CalculatorAction): CalculatorState {
   switch (action.type) {
     case 'ADD_DIGIT':
@@ -107,7 +104,6 @@ function calculatorReducer(state: CalculatorState, action: CalculatorAction): Ca
   }
 }
 
-// Helper function to perform calculations
 function calculate({ currentValue, previousValue, operation }: CalculatorState): string {
   const prev = parseFloat(previousValue || '0');
   const current = parseFloat(currentValue);
@@ -135,7 +131,6 @@ function calculate({ currentValue, previousValue, operation }: CalculatorState):
   return computation.toString();
 }
 
-// Format number for display
 const INTEGER_FORMATTER = new Intl.NumberFormat('en-us', {
   maximumFractionDigits: 0,
 });
