@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Edu_QLD_Beginner } from "next/font/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const eduQLD = Edu_QLD_Beginner({
+  subsets: ["latin"],
+  weight: "700", // Available weights
+  variable: "--font-edu-qld", // Optional: CSS variable
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${eduQLD.className} antialiased`}>
         {children}
       </body>
     </html>
